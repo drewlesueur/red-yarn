@@ -1,5 +1,5 @@
 setModule "rpc", () ->
-  createRpc:
+  createRpc: ->
     self = {}
     self.callbacks = {}
     self.methods = {}

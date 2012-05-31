@@ -6,9 +6,40 @@
   <script>setModule("underscore", function () { return _ })</script> 
   <script src="rpc.js"></script> 
   <script src="red-yarn.js"></script> 
-  <script src="client.js"></script> 
+  <script src="client-example.js"></script> 
   </head>
   <body>
-    <h1>Red yarn example</a>
+    <h1>red yarn</h1> <i>abstracted client server communication</i>
+    <a href="http://github.com/drewlesueur/red-yarn">Source on github</a>
+    <br />
+
+    Look at console to see results
+
+    <h2>Server Code</h2>
+    <pre>
+      RedYarn = getModule "red-yarn"
+
+      server = RedYarn.createServer "drewl.us:9002", (err, client) ->
+        client.call "getClientTime", (err, time) ->
+          console.log "a client conntected and his time is #{time}"
+
+      server.getServerTime = (cb) ->
+        cb null, Date.now()
+    </pre>
+
+    <h2>Client code</h2>
+    <pre>
+      RedYarn = getModule "red-yarn"
+
+      client = RedYarn.createClient "drewl.us:9002", (err, server) ->
+        server.call "getServerTime", (err, time) ->
+          console.log "server time is #{time}"
+
+      client.getClientTime = (cb) ->
+        cb null, Date.now()
+        console.log "the server got my time!"
+    </pre>
+
+    by <a href="http://twitter.com/drewlesueur">Drew LeSueur</a>
   </body>
 </html>

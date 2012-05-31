@@ -19,6 +19,6 @@
     return ws;
   });
 
-  require("./server.js");
+  require("./server-example.js");
 
 }).call(this);

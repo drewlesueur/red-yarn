@@ -8,4 +8,4 @@ ws = require "ws"
 setModule "underscore", -> _
 setModule "ws", -> ws
 
-require "./server.js"
+require "./server-example.js"

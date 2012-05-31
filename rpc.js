@@ -3,7 +3,7 @@
 
   setModule("rpc", function() {
     return {
-      createRpc: function() {
+      create: function() {
         var self, uuid,
           _this = this;
         self = {};

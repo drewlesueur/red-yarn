@@ -1,5 +1,5 @@
 setModule "rpc", () ->
-  createRpc: ->
+  create: ->
     self = {}
     self.callbacks = {}
     self.methods = {}
@@ -28,6 +28,7 @@ setModule "rpc", () ->
 
     self.send = (method, args, callback) =>
       self.lastId = uuid()
+      # todo: make callback optional
       self.callbacks[self.lastId] = callback
 
       self.rawSend

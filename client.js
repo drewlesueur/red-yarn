@@ -3,14 +3,15 @@
 
   RedYarn = getModule("red-yarn");
 
-  client = RedYarn.makeClient("173.45.232.218:8080", function(server) {
-    return server.getServerTime(function(err, time) {
+  client = RedYarn.createClient("drewl.us:9002", function(err, server) {
+    return server.call("getServerTime", function(err, time) {
       return console.log("server time is " + time);
     });
   });
 
   client.getClientTime = function(cb) {
-    return cb(null, Date.now());
+    cb(null, Date.now());
+    return console.log("the server got my time!");
   };
 
 }).call(this);

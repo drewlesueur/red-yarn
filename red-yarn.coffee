@@ -1,6 +1,6 @@
-setModule "red-yarn", () ->
-  _ = getModule "underscore"
-  Rpc = getModule "rpc"
+poorModule "red-yarn", () ->
+  _ = poorModule "underscore"
+  Rpc = poorModule "rpc"
 
   giveRpcMyMethods = (me, rpc) -> 
     methods = _.methods(me)
@@ -54,7 +54,7 @@ getUrlInfo = (url) ->
   port: splitUrl[1] or 80 
 
 makeWebSocketServer = (url, callback) ->
-  ws = getModule "ws"
+  ws = poorModule "ws"
   WebSocketServer = require("ws").Server
   {host, port} = getUrlInfo(url)
   wss = new WebSocketServer {port: port, host: host}, callback

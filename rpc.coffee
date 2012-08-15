@@ -1,4 +1,4 @@
-setModule "rpc", () ->
+poorModule "rpc", () ->
   create: ->
     self = {}
     self.callbacks = {}

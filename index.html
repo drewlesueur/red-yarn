@@ -1,9 +1,9 @@
 <!doctype html>
 <html>
   <head>
-  <script src="poor-module.js"></script> 
+  <script src="poor_modules/poor-module.js"></script> 
   <script src="underscore.js"></script> 
-  <script>setModule("underscore", function () { return _ })</script> 
+  <script>poorModule("underscore", function () { return _ })</script> 
   <script src="rpc.js"></script> 
   <script src="red-yarn.js"></script> 
   <script src="client-example.js"></script> 
@@ -17,7 +17,7 @@
 
     <h2>Server Code</h2>
     <pre>
-      RedYarn = getModule "red-yarn"
+      RedYarn = poorModule "red-yarn"
 
       server = RedYarn.createServer "drewl.us:9002", (err, client) ->
         client.call "getClientTime", (err, time) ->
@@ -29,7 +29,7 @@
 
     <h2>Client code</h2>
     <pre>
-      RedYarn = getModule "red-yarn"
+      RedYarn = poorModule "red-yarn"
 
       client = RedYarn.createClient "drewl.us:9002", (err, server) ->
         server.call "getServerTime", (err, time) ->

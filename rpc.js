@@ -1,7 +1,7 @@
 (function() {
   var __slice = Array.prototype.slice;
 
-  setModule("rpc", function() {
+  poorModule("rpc", function() {
     return {
       create: function() {
         var self, uuid,

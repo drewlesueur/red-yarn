@@ -1,7 +1,7 @@
 (function() {
   var RedYarn, server;
 
-  RedYarn = getModule("red-yarn");
+  RedYarn = poorModule("red-yarn");
 
   server = RedYarn.createServer("drewl.us:9002", function(err, client) {
     return client.call("getClientTime", function(err, time) {

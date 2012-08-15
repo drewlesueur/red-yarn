@@ -1,4 +1,4 @@
-RedYarn = getModule "red-yarn"
+RedYarn = poorModule "red-yarn"
 
 client = RedYarn.createClient "drewl.us:9002", (err, server) ->
   server.call "getServerTime", (err, time) ->

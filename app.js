@@ -1,7 +1,7 @@
 (function() {
   var ws, _;
 
-  require("./poor-module.js");
+  require("./poor_modules/poor-module.js");
 
   require("./red-yarn.js");
 
@@ -11,11 +11,11 @@
 
   ws = require("ws");
 
-  setModule("underscore", function() {
+  poorModule("underscore", function() {
     return _;
   });
 
-  setModule("ws", function() {
+  poorModule("ws", function() {
     return ws;
   });
 

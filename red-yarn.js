@@ -2,10 +2,10 @@
   var getUrlInfo, makeWebSocketServer,
     __slice = Array.prototype.slice;
 
-  setModule("red-yarn", function() {
+  poorModule("red-yarn", function() {
     var Rpc, giveRpcMyMethods, _;
-    _ = getModule("underscore");
-    Rpc = getModule("rpc");
+    _ = poorModule("underscore");
+    Rpc = poorModule("rpc");
     giveRpcMyMethods = function(me, rpc) {
       var methods;
       methods = _.methods(me);
@@ -89,7 +89,7 @@
 
   makeWebSocketServer = function(url, callback) {
     var WebSocketServer, host, port, ws, wss, _ref;
-    ws = getModule("ws");
+    ws = poorModule("ws");
     WebSocketServer = require("ws").Server;
     _ref = getUrlInfo(url), host = _ref.host, port = _ref.port;
     wss = new WebSocketServer({
